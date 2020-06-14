@@ -1,8 +1,9 @@
 # every lot bot 
 
-This is a fork of the *everylotbot* library by Neil Freeman. It is a Twitter bot that tweets a Google Street View image of every single lot, whether vacant or not, in Tallahassee, FL. It is currently running at [@everylottallahassee](https://twitter.com/everylotinTLH). The purpose of this bot is heighten your perception of Tallahassee and illuminate spatial disparities -- read more about that [here](http://fakeisthenewreal.org/everylot/).
+This is a fork of the *everylotbot* library by Neil Freeman. It is a Twitter bot that tweets a Google Street View image of every single lot, whether vacant or not, in Tallahassee, FL. It is currently running at [@everylottallahassee](https://twitter.com/everylotinTLH). This bot has no particular purpose. I just hope it brings you some value and illuminates your perception of spatial disparities -- read more about that [here](http://fakeisthenewreal.org/everylot/).
 
 ## what you'll need to build your own
+
 * Python 3.x
 * A fresh Twitter account and a Twitter app, with registered keys
 * A Google Streetview API token.
@@ -19,20 +20,10 @@ Visit the [Google Street View Image API](https://developers.google.com/maps/docu
 
 ### Addresses
 
-You'll need a CSV file of the lots. For @everytreeintlh, I exported a CSV from Leon County's [Property Appraiser site](https://www.leonpa.org/_dnn/).  Here are the fields that were used in the bot:
-
-* For general tracking:
-  * id ('PARID')
-
-* For composing the tweets:
-  * address ('LOCATION')
-  * zip ('ZIP')
-  * house number ('HOUSENBR')
-  * tax district ('TAXDISTRICT')
-
-* For Google Street View lookups:
-  * address
+You'll need a CSV file of the lots. For @everytreeintlh, I exported a CSV from Leon County's [Property Appraiser site](https://www.leonpa.org/_dnn/) and cleaned it up.  Here are the fields that were used in the bot:
+* id - for general tracking
+* address - for composing tweets and google street view lookups
 
 ### A place for your bot to live
 
-Now, you just need a place for the bot to live. This needs to be a computer that's always connected to the internet, and that you can set up to run tasks for you. You could use a virtual server hosted at a vendor like Amazon AWS or GCP, or space on a web server.
+Now, you just need a place for the bot to live. You could use a virtual server hosted at a vendor like Amazon AWS or GCP, or space on a web server.
