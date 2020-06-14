@@ -29,7 +29,7 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-def get_streetview_image(config, address):
+def get_streetview_image(g_maps_key, address):
         '''Fetch image from streetview API'''
         params = {
             "location": address,
@@ -52,9 +52,10 @@ def get_streetview_image(config, address):
 #for loop for making and posting the tweet (photo and street name as the caption)
 #posts 1 photo every 1800 seconds, or 30 minutes.
 for i, row in df.iterrows():
-    image = get_streetview_image(api.config['streetview'], df['address'][i])
+    image = get_streetview_image(g_maps_key, df['address'][i])
     media = api.media_upload('sv.png', file=image)
     post_result = apii.update_status(status=df['street'][i], media_ids=[media.media_id])
     df.at[i, 'tweeted'] = 1
     df.to_csv('./tweeted_lots.csv')
+    print(df['address'][i])
     time.sleep(1800) 
