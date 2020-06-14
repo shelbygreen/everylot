@@ -20,11 +20,19 @@ Visit the [Google Street View Image API](https://developers.google.com/maps/docu
 
 ### Addresses
 
-You'll need a CSV file of the lots. For @everytreeintlh, I exported a CSV from Leon County's [Property Appraiser site](https://www.leonpa.org/_dnn/) and cleaned it up.  Here are the fields that were used in the bot:
+You'll need a CSV file of the lots. For @everylotintlh, I exported a CSV from Leon County's [Property Appraiser site](https://www.leonpa.org/_dnn/) and cleaned it up, as shown in the import.py file. 
+
+Here are the fields that were used in the bot:
 * tweeted - to track amount of times the lot was tweeted
 * address - for google street view lookups
 * street - for composing tweets
 
 ### A place for your bot to live
 
-Now, you just need a place for the bot to live. You could use a virtual server hosted at a vendor like Amazon AWS or GCP, or space on a web server.
+You could use a virtual server hosted at a vendor like Amazon AWS or GCP, or space on a web server. I used a GCP Virtual Machine and used this [tutorial](https://www.youtube.com/watch?v=2d5LzJNj46w) to set it up. 
+
+### Usage
+Once you've created lots.csv -- a clean CSV of the lots (with a 'street', 'address' and 'tweeted' column) -- and configured your virtual environment to house your Twitter/Google credentials in the setup.py file, you're ready to go. 
+
+Run: 
+'python3 everystop.py' in the command line. It will post 1 lot every 30 minutes until it runs out of lots.
