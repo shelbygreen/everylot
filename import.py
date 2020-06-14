@@ -29,7 +29,7 @@ df['TAX_DISTRICT'] = df['TAX_DISTRICT'].astype(int)
 df['HOUSENBR'] = df['HOUSENBR'].astype(int)
 
 #remove APT, BLDG, and SUITE from location
-df["LOCATION"] = df["LOCATION"].apply(lambda x: x.split(' APT')[0].split(' BLDG')[0].split(' APT')[0])
+df["LOCATION"] = df["LOCATION"].apply(lambda x: x.split(' APT')[0].split(' BLDG')[0].split(' SUITE')[0])
 
 #removes parcels w/ 0 as the house number
 df = df[df['HOUSENBR'] != 0]
