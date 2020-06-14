@@ -20,7 +20,7 @@ Visit the [Google Street View Image API](https://developers.google.com/maps/docu
 
 ### Addresses
 
-You'll need a CSV file of the lots. For @everylotintlh, I exported a CSV from Leon County's [Property Appraiser site](https://www.leonpa.org/_dnn/) and cleaned it up, as shown in the import.py file. 
+You'll need a CSV file of the lots. For @everylotintlh, I exported a [CSV](ftp://ftp.leonpa.org/Certified_Data.zip) from Leon County's [Property Appraiser site](https://www.leonpa.org/_dnn/) and cleaned it up, as shown in the import.py file. 
 
 Here are the fields that were used in the bot:
 * tweeted - to track amount of times the lot was tweeted
