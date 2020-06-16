@@ -54,7 +54,7 @@ def get_streetview_image(g_maps_key, address):
 for i, row in df.iterrows():
     image = get_streetview_image(g_maps_key, df['address'][i])
     media = api.media_upload('sv.png', file=image)
-    post_result = apii.update_status(status=df['street'][i], media_ids=[media.media_id])
+    post_result = api.update_status(status=df['street'][i], media_ids=[media.media_id])
     df.at[i, 'tweeted'] = 1
     df.to_csv('./tweeted_lots.csv')
     print(df['address'][i])
