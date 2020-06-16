@@ -31,12 +31,6 @@ df['HOUSENBR'] = df['HOUSENBR'].astype(int)
 #remove APT, BLDG, and SUITE from location
 df["LOCATION"] = df["LOCATION"].apply(lambda x: x.split(' APT')[0].split(' BLDG')[0].split(' SUITE')[0])
 
-#removes parcels w/ 0 as the house number
-df = df[df['HOUSENBR'] != 0]
-
-#drop parcels outside of the city
-df = df[df['TAX_DISTRICT'] != 2]
-
 #removes parcels outside of the city and with 0 as the house nmber
 df = df.loc[(df['HOUSENBR'] != 0) & (df['TAX_DISTRICT'] != 2)]
 
