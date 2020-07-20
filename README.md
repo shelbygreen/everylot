@@ -29,10 +29,10 @@ Here are the fields that were used in the bot:
 
 ### A place for your bot to live
 
-You could use a virtual server hosted at a vendor like Amazon AWS or GCP, or space on a web server. I used a GCP Virtual Machine and used this [tutorial](https://www.youtube.com/watch?v=2d5LzJNj46w) to set it up. 
+You could use a virtual server hosted at a vendor like Amazon AWS or GCP, or space on a web server. I used a GCP Virtual Machine and followed this [tutorial](https://www.youtube.com/watch?v=2d5LzJNj46w) to set it up. 
 
 ### Usage
 Once you've created lots.csv -- a clean CSV of the lots (with a 'street', 'address' and 'tweeted' column) -- and configured your virtual environment to house your Twitter/Google credentials in the setup.py file, you're ready to go. 
 
 Run: 
-'python3 everystop.py' in the command line. It will post 1 lot every 30 minutes until it runs out of lots.
+'python3 setup.py' in the command line. It will post 1 lot every 30 minutes until it runs out of lots.
