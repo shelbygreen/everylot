@@ -42,7 +42,7 @@ def post_tweet():
   api = twitter_api()
 
   for index, row in df.iterrows():
-    if (row['street'] != 1) is True: #only posts lots that haven't been tweeted
+    if (row['tweeted'] == 0) is True: #only posts lots that haven't been tweeted
       #parameters for google street view
       params = {
       "location": row['address'],
