@@ -20,10 +20,10 @@ import requests
 import os
 
 #read csv as dataframe - this file is what was created in import.py
-df = pd.read_csv('/content/drive/My Drive/BACKUP/everylot/lots.csv')[["street", "address", "tweeted"]]
+df = pd.read_csv('./lots.csv')[["street", "address", "tweeted"]]
 
 #read YAML file
-yaml_file = open("/content/drive/My Drive/BACKUP/everylot/keys.yaml")
+yaml_file = open("./keys.yaml")
 parsed_yaml_file = yaml.load(yaml_file)
 
 #urls for requests to google maps
@@ -58,16 +58,18 @@ def post_tweet():
       #saves image at temporary file (sv.png)
       with open('sv.png', 'wb') as image:
         image.write(r.content)
-      #removes temporary file
 
       #creates tweet with file as image and status as lot's street address
       api.update_with_media('sv.png', status=row['street'])
       df.at[row, 'tweeted'] = 1 #updates tweeted number for the lot
       df.to_csv('./lots.csv') #updates lots file
       print(row["street"])
+      
+      #removes temporary file
       os.remove('sv.png')
-
-      time.sleep(1780) #wait ~30 minutes until the next posting
+      
+      #wait ~30 minutes until the next posting
+      time.sleep(1780)
 
 #post tweet
 post_tweet()
