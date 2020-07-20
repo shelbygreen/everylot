@@ -4,7 +4,7 @@ Workflow:
 1. Obtain CSV of parcels from Leon County's Appraiser's website.
 2. Import CSV file as dataframe.
 3. Modify dataframe.
--setup.py-
+-bot.py-
 4. Post streetview image of the address (and street name/number) to twitter account.
 """
 
@@ -28,8 +28,8 @@ df['ZIP'] = df['ZIP'].astype(int)
 df['TAX_DISTRICT'] = df['TAX_DISTRICT'].astype(int)
 df['HOUSENBR'] = df['HOUSENBR'].astype(int)
 
-#remove APT, BLDG, and SUITE from location
-df["LOCATION"] = df["LOCATION"].apply(lambda x: x.split(' APT')[0].split(' BLDG')[0].split(' SUITE')[0])
+#remove APT, BLDG, SUITE/STE, OFC, and UNIT from location
+df["LOCATION"] = df["LOCATION"].apply(lambda x: x.split(' APT')[0].split(' BLDG')[0].split(' SUITE')[0].split(' STE')[0].split(' OFC')[0].split(' UNIT')[0])
 
 #removes parcels outside of the city and with 0 as the house nmber
 df = df.loc[(df['HOUSENBR'] != 0) & (df['TAX_DISTRICT'] != 2)]
